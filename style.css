@@ -1,119 +1,219 @@
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
+/* styles.css */
+
+/* CSS variables */
+:root {
+  --font-fallback: BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  --font-body: Inter,var(--font-fallback);
+  --font-heading: Inter,var(--font-fallback);
+  --font-code: Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;
+  --base-font-size: 100%;
+  --base-line-height: 1.2;
+  --intermediate-line-height: 1.5;
+  --heading-line-height: var(--base-line-height);
+  --heading-letter-spacing: -0.031rem;
+  --font-content-line-height: 1.75;
+  --font-body-strong-weight: 600;
+  --type-heading-h1-font-size: 2.488rem;
+  --type-heading-h2-font-size: 2.074rem;
+  --type-heading-h3-font-size: 1.728rem;
+  --type-heading-h4-font-size: 1.44rem;
+  --type-heading-h5-font-size: 1.2rem;
+  --type-base-font-size-rem: 1rem;
+  --type-smaller-font-size: 0.833rem;
+  --type-tiny-font-size: 0.694rem;
+  --type-heading-h1-font-size-mobile: 1.802rem;
+  --type-heading-h2-font-size-mobile: 1.602rem;
+  --type-heading-h3-font-size-mobile: 1.424rem;
+  --type-heading-h4-font-size-mobile: 1.266rem;
+  --type-emphasis-m: var(--font-body-strong-weight) var(--type-smaller-font-size) /1.23 var(--font-body);
+  --type-label-s: 600 var(--type-tiny-font-size) /1.2 var(--font-heading);
+  --type-heading-h1: 600 var(--type-heading-h1-font-size-mobile) /var(--heading-line-height) var(--font-heading);
+  --type-heading-h2: 500 var(--type-heading-h2-font-size-mobile) /var(--heading-line-height) var(--font-heading);
+  --type-heading-h3: 300 var(--type-heading-h3-font-size-mobile) /var(--heading-line-height) var(--font-heading);
+  --type-heading-h4: 400 var(--type-heading-h4-font-size-mobile) /var(--heading-line-height) var(--font-heading);
+  --type-heading-h5: 400 var(--type-heading-h5-font-size) /var(--heading-line-height) var(--font-heading);
+  --type-heading-h6: 400 var(--type-base-font-size-rem) /var(--heading-line-height) var(--font-heading);
+  --type-article-p: 400 var(--type-base-font-size-rem) /var(--font-content-line-height) var(--font-body);
+  --max-width: 1440px;
+  --gutter: 1rem;
+  --top-navigation-height: 4rem;
+  --top-navigation-offset: -4rem;
+  --top-banner-inner-height: 3.125rem;
+  --top-banner-height: calc(var(--top-banner-inner-height) + 0.25rem);
+  --top-banner-outer-height: calc(var(--top-banner-height) + 2px);
+  --z-index-a11y: 10000;
+  --z-index-modal-content: 801;
+  --z-index-modal-overlay: 800;
+  --z-index-main-header: 700;
+  --z-index-sidebar-mobile: 600;
+  --z-index-mid: 500;
+  --z-index-nav-menu: 200;
+  --z-index-search-results: 101;
+  --z-index-low: 100;
+  --z-index-search-results-home: 99;
+  --z-index-back: -1;
+  --elem-radius: 0.25rem;
+  --focus-effect: 0 0 0 3px var(--accent-primary-engage);
+  --form-elem-height: 2rem;
+  --top-nav-height: 4rem;
+  --article-actions-container-height: 2rem;
+  --icon-size: 1rem;
+  --sticky-header-height: calc(var(--top-nav-height) + var(--article-actions-container-height) + 2px);
 }
 
-/*Navbar Styles*/
-.w3-navbar { color: #fff; }
-.w3-navbar.w3-animate-top { color: #444; }
-.w3-navbar li a:hover { background-color: rgba(0,0,0,0.2); color: #fff; }
-
-.logo{
-  height: 31px;
-  margin: 2px 0px -2px 7px;
-}
-.title{
-  position: relative;
-  bottom: 7px;
-}
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    opacity: 0.7;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* Global styles */
+body {
+  font-family: var(--font-body);
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  margin: 0;
+  padding: 0;
 }
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
-    background-image: url('images/1.jpg');
-    min-height: 100%;
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
 }
 
-/* Second image (Portfolio) */
-.bgimg-2 {
-    background-image: url("images/3.jpg");
-    min-height: 400px;
+header h1 {
+  margin: 0;
 }
 
-/* Third image (Contact) */
-.bgimg-3 {
-    background-image: url("images/2.png");
-    min-height: 400px;
+/* Navigation styles */
+nav {
+  background-color: #f2f2f2;
+  padding: 10px;
 }
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-#googleMap {
-    width: 100%;
-    height: 400px;
-    -webkit-filter: grayscale(1);
-    filter: grayscale(1);
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Turn off parallax scrolling for tablets and mobiles */
-@media only screen and (max-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-    }
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
 }
 
-/* About Section */
-#about {
-  font-size: 1.4em;
-}
-
-/* Heart Icon */
-.heart-icon {
-  color: #f77;
-}
-
-
-/* Clearfix Hack */
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
-}
-
-/* Social Media Icons */
-.w3-half > a {
+nav ul li a {
   text-decoration: none;
+  color: #333;
 }
 
-i.fa {
-  padding-top: .2em;
-  padding-left: .5em;
-  padding-right: .5em;
-  taransition: color 1s;
+nav ul li a:hover {
+  color: #555;
 }
 
-.fa-fire:hover {
-  color: #4a4;
+/* Main content styles */
+main {
+  padding: 20px;
 }
 
-.fa-facebook:hover {
-  color: #04a;
+/* Main container styles */
+.main-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: row;
+  max-width: 52rem;
+  margin: 0 auto;
 }
 
-.fa-codepen:hover {
-  color: #4af;
+/* Container styles */
+.container {
+  border: 1px solid #cdcdcd;
+  border-radius: .5rem;
+  padding: 1rem;
 }
 
-#profile { vertical-align: middle; }
+.container h2 {
+  margin-top: 0;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Font styles */
+code {
+  font-family: var(--font-code);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+p {
+  font-family: var(--font-body);
+}
+
+/* Heading styles */
+h1 {
+  font-weight: var(--type-heading-h1);
+  font-size: var(--type-heading-h1-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+h2 {
+  font-weight: var(--type-heading-h2);
+  font-size: var(--type-heading-h2-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+h3 {
+  font-weight: var(--type-heading-h3);
+  font-size: var(--type-heading-h3-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+h4 {
+  font-weight: var(--type-heading-h4);
+  font-size: var(--type-heading-h4-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+h5 {
+  font-weight: var(--type-heading-h5);
+  font-size: var(--type-heading-h5-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+h6 {
+  font-weight: var(--type-heading-h6);
+  font-size: var(--type-base-font-size-rem);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+/* Paragraph styles */
+p {
+  font-weight: 400;
+  font-size: var(--type-base-font-size-rem);
+  line-height: var(--font-content-line-height);
+}
+/* Additional CSS for code box */
+.code-box {
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+/* Styling for code element within code box */
+code {
+  background-color: #f5f5f5;
+  padding: 3px 6px;
+  font-size: 14px;
+  color: #333;
+}
